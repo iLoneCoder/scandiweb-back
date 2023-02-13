@@ -16,6 +16,11 @@ class Routes
         $this->register("GET", $route, $action);
     }
 
+    public function post(string $route, array $action)
+    {
+        $this->register("POST", $route, $action);
+    }
+
     public function resolve(string $method, string $requestUri)
     {
         $action = $this->routes[$method][$requestUri] ?? null;

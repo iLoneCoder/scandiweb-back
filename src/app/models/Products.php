@@ -4,9 +4,9 @@ namespace app\models;
 
 abstract class Products
 {
-    private string $sku;
-    private string $name;
-    private float $price;
+    protected string $sku;
+    protected string $name;
+    protected float $price;
 
     protected function __construct(string $sku, string $name, float $price)
     {

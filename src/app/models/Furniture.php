@@ -8,12 +8,15 @@ class Furniture extends Products
     private float $width;
     private float $height;
 
-    public function __construct(string $sku, string $name, float $price, array $dimension)
+    public function __construct(array $furnitureData)
     {
+        $sku = $furnitureData["sku"];
+        $name = $furnitureData["name"];
+        $price = $furnitureData["price"];
         parent::__construct($sku, $name, $price);
-        $this->length = $dimension["length"];
-        $this->width = $dimension["width"];
-        $this->height = $dimension["height"];
+        $this->length = $furnitureData["dimension"]["length"];
+        $this->width = $furnitureData["dimension"]["width"];
+        $this->height = $furnitureData["dimension"]["height"];
     }
 
     public function save(): void

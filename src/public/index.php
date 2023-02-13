@@ -1,5 +1,6 @@
 <?php
 
+
 declare(strict_types=1);
 
 require_once __DIR__ . "/../vendor/autoload.php";
@@ -17,7 +18,7 @@ $dotenv->load();
 $router = new Routes();
 
 $router->get("/get-products", [ProductsController::class, "getProducts"]);
-
+$router->post("/create-product", [ProductsController::class, "createProduct"]);
 // echo "<pre>";
 // var_dump($_SERVER);
 // echo "<pre>";

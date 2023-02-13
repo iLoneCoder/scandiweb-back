@@ -6,10 +6,13 @@ class Dvd extends Products
 {
     private float $size;
 
-    public function __construct(string $sku, string $name, float $price, float $size)
+    public function __construct(array $dvdData)
     {
+        $sku = $dvdData["sku"];
+        $name = $dvdData["name"];
+        $price = $dvdData["price"];
         parent::__construct($sku, $name, $price);
-        $this->size = $size;
+        $this->size = $dvdData["size"];
     }
 
     public function save(): void
