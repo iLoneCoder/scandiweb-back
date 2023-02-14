@@ -35,11 +35,11 @@ class App
         try {
             header("Access-Control-Allow-Origin: *");
             header("Access-Control-Allow-Headers: *");
-            
+            header("Content-Type: application/json");
             $this->router->resolve($method, $requestUri);
         } catch (\Throwable $th) {
             http_response_code(404);
-            echo json_encode(["message" => $th->getMessage()]);
+            echo json_encode(["message" => $th->getMessage() . " hh"]);
         }
     }
 }

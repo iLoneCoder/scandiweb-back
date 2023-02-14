@@ -7,7 +7,7 @@ use app\models\Books;
 use app\models\Dvd;
 use app\models\Furniture;
 use app\models\Products;
-use app\ProductType;
+use app\utils\ProductType;
 
 class ProductsController
 {
@@ -50,23 +50,24 @@ class ProductsController
 
     public function createProduct()
     {
-        $productType = $_POST["product_type"];
-        
-        
+        $data = json_decode(file_get_contents("php://input"), true);
+        $productType = $data["product_type"];
+
+
         if (isset(ProductType::MODELS[$productType])) {
             $class = ProductType::MODELS[$productType];
             if (class_exists($class)) {
 
-                
-                try {
-                    $class = new $class($_POST);
-                } catch (\Throwable $th) {
-                    http_response_code(400);
-                   
-                    echo $th->getMessage();
-                    exit;
-                }
-                
+
+                // try {
+                    $class = new $class($data);
+                // } catch (\Throwable $th) {
+                //     http_response_code(400);
+
+                //     echo $th->getMessage();
+                //     exit;
+                // }
+
 
                 $class->save();
             }
