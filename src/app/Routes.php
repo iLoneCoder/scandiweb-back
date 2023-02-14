@@ -21,6 +21,11 @@ class Routes
         $this->register("POST", $route, $action);
     }
 
+    public function delete(string $route, array $action)
+    {
+        $this->register("DELETE", $route, $action);
+    }
+
     public function resolve(string $method, string $requestUri)
     {
         $action = $this->routes[$method][$requestUri] ?? null;

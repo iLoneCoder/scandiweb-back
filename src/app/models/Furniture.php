@@ -39,6 +39,7 @@ class Furniture extends Products
         if (!$this->sku || !$this->name || !$this->price || !$this->length || !$this->width || !$this->height) {
             http_response_code(400);
             echo json_encode(["message" => "Provide all requred data"]);
+            exit;
         }
 
         $query = "SELECT * FROM products WHERE sku=?";

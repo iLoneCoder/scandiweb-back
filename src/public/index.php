@@ -17,8 +17,9 @@ $dotenv->load();
 
 $router = new Routes();
 
-$router->get("/get-products", [ProductsController::class, "getProducts"]);
-$router->post("/create-product", [ProductsController::class, "createProduct"]);
+$router->get("/api/get-products", [ProductsController::class, "getProducts"]);
+$router->post("/api/create-product", [ProductsController::class, "createProduct"]);
+$router->delete("/api/delete-products", [ProductsController::class, "deleteProducts"]);
 // echo "<pre>";
 // var_dump($_SERVER);
 // echo "<pre>";

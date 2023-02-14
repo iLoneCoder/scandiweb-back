@@ -78,4 +78,9 @@ class ProductsController
         }
 
     }
+
+    public function deleteProducts(){
+        $data = json_decode(file_get_contentS("php://input"), true) ?? [];
+        Products::delete($data);
+    }
 }
