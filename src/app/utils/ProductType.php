@@ -11,6 +11,6 @@ class ProductType
     public const MODELS = [
         ProductType::BOOK => "app\models\Books",
         ProductType::DVD => "app\models\Dvd",
-        ProductType::FURNITURE => "app\models\\furniture"
+        ProductType::FURNITURE => "app\models\\Furniture"
     ];
 }

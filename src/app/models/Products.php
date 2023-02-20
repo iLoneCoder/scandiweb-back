@@ -22,10 +22,10 @@ abstract class Products
     public static function delete(array $data): void
     {
         $db = APP::db();
-        if (count($data) > 0 && count($data["productsId"]) > 0) {
-            $query = "DELETE FROM products WHERE id IN(" . str_repeat("?,", count($data["productsId"]) - 1) . "?)";
+        if (count($data) > 0 && count($data["productIds"]) > 0) {
+            $query = "DELETE FROM products WHERE id IN(" . str_repeat("?,", count($data["productIds"]) - 1) . "?)";
             $stmt = $db->prepare($query);
-            $stmt->execute($data["productsId"]);
+            $stmt->execute($data["productIds"]);
 
             echo json_encode(["message" => "Provided products has been deleted"]);
             exit;

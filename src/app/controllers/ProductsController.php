@@ -51,7 +51,7 @@ class ProductsController
     public function createProduct()
     {
         $data = json_decode(file_get_contents("php://input"), true);
-        $productType = $data["product_type"];
+        $productType = $data["productType"];
 
 
         if (isset(ProductType::MODELS[$productType])) {
@@ -75,6 +75,7 @@ class ProductsController
             http_response_code(404);
 
             echo json_encode(["message" => "Not supported product type"]);
+            exit;
         }
 
     }
